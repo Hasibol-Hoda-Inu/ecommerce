@@ -30,8 +30,19 @@ class CraftyBay extends StatelessWidget {
         inputDecorationTheme: const InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(horizontal: 16),
       border: OutlineInputBorder(),
-      enabledBorder: OutlineInputBorder(),
-      disabledBorder: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey)
+      ),
+          disabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey)
+      ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.primaryColor)
+          ),
+          hintStyle: TextStyle(
+            color: Colors.grey,
+            fontWeight: FontWeight.w300,
+          ),
     ),
       )
     );
