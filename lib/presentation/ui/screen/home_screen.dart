@@ -1,4 +1,6 @@
+import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
+import 'package:ecommerce/presentation/ui/widgets/home_screen/home_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -24,19 +26,50 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(),
             CircularIconButton(
               icon: Icons.person,
-              onTap: () {  },
+              onTap: () {},
             ),
-            const SizedBox(width: 8,),
+            const SizedBox(
+              width: 8,
+            ),
             CircularIconButton(
               icon: Icons.phone,
-              onTap: () {  },
+              onTap: () {},
             ),
-            const SizedBox(width: 8,),
+            const SizedBox(
+              width: 8,
+            ),
             CircularIconButton(
               icon: Icons.notifications,
-              onTap: () {  },
+              onTap: () {},
             ),
           ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  fillColor: Colors.grey.shade200,
+                  filled: true,
+                  prefixIcon: const Icon(Icons.search_rounded),
+                  prefixIconColor: AppColors.primaryColor,
+                  border: const OutlineInputBorder(borderSide: BorderSide.none),
+                  enabledBorder:
+                      const OutlineInputBorder(borderSide: BorderSide.none),
+                  disabledBorder:
+                      const OutlineInputBorder(borderSide: BorderSide.none),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const HomeSlider(),
+            ],
+          ),
         ),
       ),
     );
