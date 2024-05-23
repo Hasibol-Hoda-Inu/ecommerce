@@ -1,11 +1,17 @@
+import 'dart:ui';
+
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:ecommerce/presentation/ui/widgets/home_screen/home_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/circular_icon_button.dart';
+import '../widgets/product_card_widget.dart';
 import '../widgets/section_title.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -117,6 +123,37 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 16,),
               SectionTitle(title: 'Popular', onTap: (){}),
+              SizedBox(
+                height: 182,
+                child: ListView.builder(
+                    itemCount: 20,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index){
+                      return const ProductCard();
+                }),
+              ),
+              const SizedBox(height: 16,),
+              SectionTitle(title: 'Special', onTap: (){}),
+              SizedBox(
+                height: 182,
+                child: ListView.builder(
+                    itemCount: 20,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index){
+                      return const ProductCard();
+                    }),
+              ),
+              const SizedBox(height: 16,),
+              SectionTitle(title: 'New', onTap: (){}),
+              SizedBox(
+                height: 182,
+                child: ListView.builder(
+                    itemCount: 20,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index){
+                      return const ProductCard();
+                    }),
+              ),
             ],
           ),
         ),
@@ -124,3 +161,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
