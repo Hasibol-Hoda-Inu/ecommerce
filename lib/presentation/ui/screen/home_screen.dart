@@ -1,15 +1,12 @@
-import 'dart:ui';
-
+import 'package:ecommerce/presentation/ui/screen/category_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:ecommerce/presentation/ui/widgets/home_screen/home_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
+import '../widgets/category_icon_card_widget.dart';
 import '../widgets/circular_icon_button.dart';
 import '../widgets/product_card_widget.dart';
 import '../widgets/section_title.dart';
@@ -81,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SectionTitle(
                 title: "Categories",
-                onTap: () {},
+                onTap: () {
+                  Get.to(CategoryListScreen());
+                },
               ),
               const SizedBox(
                 height: 8,
@@ -92,33 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: 10,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, item) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Column(
-                          children: [
-                            Container(
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: AppColors.primaryColor.withOpacity(0.2),
-                              ),
-                              child: const Icon(
-                                Icons.shopify,
-                                size: 50,
-                              ),
-                            ),
-                            const Text(
-                              'Fruits',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: AppColors.primaryColor,
-                              ),
-                            )
-                          ],
-                        ),
-                      );
+                      return const CategoryCard();
                     }),
               ),
               const SizedBox(height: 16,),
@@ -161,4 +134,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
 
