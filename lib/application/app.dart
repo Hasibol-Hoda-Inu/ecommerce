@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../presentation/ui/utility/app_color.dart';
+import 'state_holder_binder.dart';
 
 class CraftyBay extends StatelessWidget {
   const CraftyBay({super.key});
@@ -12,6 +13,7 @@ class CraftyBay extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      initialBinding: StateHolderBinder(),
       theme: ThemeData(
         primarySwatch: MaterialColor(AppColors.primaryColor.value, AppColors().color),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -48,3 +50,4 @@ class CraftyBay extends StatelessWidget {
     );
   }
 }
+

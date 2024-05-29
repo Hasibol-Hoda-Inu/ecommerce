@@ -1,4 +1,6 @@
+import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:ecommerce/presentation/ui/screen/category_list_screen.dart';
+import 'package:ecommerce/presentation/ui/screen/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:ecommerce/presentation/ui/widgets/home_screen/home_slider.dart';
@@ -79,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SectionTitle(
                 title: "Categories",
                 onTap: () {
-                  Get.to(CategoryListScreen());
+                  Get.find<MainBottomNavController>().changeScreen(1);
                 },
               ),
               const SizedBox(
@@ -95,7 +97,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
               ),
               const SizedBox(height: 16,),
-              SectionTitle(title: 'Popular', onTap: (){}),
+              SectionTitle(title: 'Popular',
+                  onTap: (){
+                Get.to(const ProductListScreen());
+                  }),
               SizedBox(
                 height: 182,
                 child: ListView.builder(
@@ -106,7 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
               ),
               const SizedBox(height: 16,),
-              SectionTitle(title: 'Special', onTap: (){}),
+              SectionTitle(title: 'Special',
+                  onTap: (){
+                Get.to(const ProductListScreen());
+                  }),
               SizedBox(
                 height: 182,
                 child: ListView.builder(
@@ -117,7 +125,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
               ),
               const SizedBox(height: 16,),
-              SectionTitle(title: 'New', onTap: (){}),
+              SectionTitle(title: 'New',
+                  onTap: (){
+                Get.to(const ProductListScreen());
+                  }),
               SizedBox(
                 height: 182,
                 child: ListView.builder(

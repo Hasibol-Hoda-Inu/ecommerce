@@ -1,14 +1,8 @@
-import 'package:ecommerce/presentation/ui/screen/auth/email_varification_screen.dart';
-import 'package:ecommerce/presentation/ui/screen/auth/otp_verification_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/main_bottom_nav_screen.dart';
-import 'package:ecommerce/presentation/ui/screen/wishlist.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
-import 'package:ecommerce/presentation/ui/widgets/product_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
-import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
