@@ -1,5 +1,4 @@
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
-import 'package:ecommerce/presentation/ui/screen/category_list_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
