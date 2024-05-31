@@ -20,7 +20,7 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-              height: 260.0,
+              height: 360.0,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
               viewportFraction: 1,
@@ -32,12 +32,12 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
               builder: (BuildContext context) {
                 return Container(
                     width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
-                      color: Colors.amber,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade400,
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      'text $i',
+                      'image $i',
                       style: const TextStyle(fontSize: 16.0),
                     ));
               },
