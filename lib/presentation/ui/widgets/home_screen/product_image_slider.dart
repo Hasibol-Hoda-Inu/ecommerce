@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -33,13 +34,12 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
                 return Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade400,
+                      color: Colors.black.withOpacity(0.1)
                     ),
                     alignment: Alignment.center,
-                    child: Text(
-                      'image $i',
-                      style: const TextStyle(fontSize: 16.0),
-                    ));
+                    // child: Text('image $i', style: const TextStyle(fontSize: 16.0),)
+                  child: Image.asset(ImageAssets.ShoePicture2),
+                );
               },
             );
           }).toList(),
