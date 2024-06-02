@@ -1,8 +1,11 @@
+import 'package:ecommerce/presentation/ui/screen/home_screen.dart';
+import 'package:ecommerce/presentation/ui/screen/reviews.dart';
 import 'package:ecommerce/presentation/ui/widgets/custom_stapper.dart';
 import 'package:ecommerce/presentation/ui/widgets/home_screen/product_image_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 import '../utility/app_color.dart';
 
@@ -46,8 +49,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 const ProductImageSlider(),
                 AppBar(
                   title: const Text('Product details'),
-                  leading: const BackButton(
+                  leading: IconButton(
+                    onPressed: (){
+                      Get.to(const HomeScreen());
+                    },
                     color: Colors.blueGrey,
+                    icon: const Icon(Icons.arrow_back_ios_new),
                   ),
                   backgroundColor: Colors.transparent,
                 ),
@@ -91,7 +98,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               ]
                           ),
                           TextButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              Get.to(const Reviews());
+                            },
                             child: const Text('Review', style: TextStyle(
                               color: AppColors.primaryColor,
                               fontSize: 16,
@@ -199,7 +208,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             Container(
               decoration: BoxDecoration(
                 color: AppColors.primaryColor.withOpacity(0.1),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(32),
                   topLeft: Radius.circular(32),
                 )
@@ -209,14 +218,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Price', style: TextStyle(
                           fontSize: 16,
                         ),),
-                        const SizedBox(height: 4,),
-                        Text("\$1,000", style: const TextStyle(
+                        SizedBox(height: 4,),
+                        Text("\$1,000", style: TextStyle(
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.w500,
                           fontSize: 18
