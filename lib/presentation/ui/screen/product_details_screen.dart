@@ -49,12 +49,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 const ProductImageSlider(),
                 AppBar(
                   title: const Text('Product details'),
-                  leading: IconButton(
-                    onPressed: (){
-                      Get.to(const HomeScreen());
-                    },
+                  leading: BackButton(
                     color: Colors.blueGrey,
-                    icon: const Icon(Icons.arrow_back_ios_new),
                   ),
                   backgroundColor: Colors.transparent,
                 ),

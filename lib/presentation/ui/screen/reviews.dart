@@ -1,3 +1,4 @@
+import 'package:ecommerce/presentation/ui/screen/create_review_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,9 @@ class _ReviewsState extends State<Reviews> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Reviews'),
-        leading: IconButton(
-          onPressed: (){
-            Get.to(const HomeScreen());
-          },
-          icon: const Icon(Icons.arrow_back_ios_new),
-        ),
+        leading: BackButton(
+
+        )
       ),
       body: Column(
         children: [
@@ -65,7 +63,9 @@ class _ReviewsState extends State<Reviews> {
                 //     icon: const Icon(Icons.add,)
                 // ),
                 FloatingActionButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Get.to(const CreateReview());
+                  },
                   backgroundColor: AppColors.primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius:BorderRadius.circular(50)

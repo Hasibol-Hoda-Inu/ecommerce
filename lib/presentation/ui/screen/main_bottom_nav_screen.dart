@@ -1,4 +1,5 @@
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
+import 'package:ecommerce/presentation/ui/screen/cart_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/category_list_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/home_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/wishlist.dart';
@@ -19,7 +20,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   List<Widget> _screens= [
     HomeScreen(),
     CategoryListScreen(),
-    HomeScreen(),
+    CartScreen(),
     Wishlist(),
   ];
 
