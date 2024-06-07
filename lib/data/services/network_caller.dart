@@ -10,9 +10,10 @@ class NetworkCaller {
   static Future<NetworkResponse> getRequest(String url) async {
     try {
       Response response = await get(Uri.parse(url),
-          headers: {
-            'token': AuthController.accessToken.toString()
-          });
+          // headers: {
+          //   'token': AuthController.accessToken.toString()
+          // }
+          );
       log(response.statusCode.toString());
       log(response.body);
       if (response.statusCode == 200) {
@@ -36,7 +37,7 @@ class NetworkCaller {
         Uri.parse(url),
         headers: {
           'Content-Type': 'application/json',
-          'token': AuthController.accessToken.toString()
+          // 'token': AuthController.accessToken.toString()
         },
         body: jsonEncode(body),
       );
@@ -62,10 +63,10 @@ class NetworkCaller {
   }
 
   static Future<void> gotoLogin() async {
-    await AuthController.clear();
-    Navigator.pushAndRemoveUntil(
-        CraftyBay.globalKey.currentContext!,
-        MaterialPageRoute(builder: (context) => const EmailVerificationScreen()),
-            (route) => false);
+    // await AuthController.clear();
+    // Navigator.pushAndRemoveUntil(
+    //     CraftyBay.globalKey.currentContext!,
+    //     MaterialPageRoute(builder: (context) => const EmailVerificationScreen()),
+    //         (route) => false);
   }
 }
