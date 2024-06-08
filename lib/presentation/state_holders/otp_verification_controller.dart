@@ -4,24 +4,24 @@ import 'package:get/get.dart';
 
 import '../../data/utility/urls.dart';
 
-class EmailVerificationController extends GetxController{
-  bool _emailVerificationInprogress =false;
+class OtpVerificationController extends GetxController{
+  bool _otpVerificationInprogress =false;
   String _message='';
-  bool get emailVerificationInprogress=> _emailVerificationInprogress;
+  bool get otpVerificationInprogress=> _otpVerificationInprogress;
   String get message=>_message;
 
-  Future<bool> verifyEmail(String email)async{
-    _emailVerificationInprogress=true;
+  Future<bool> verifyOtp(String email, String otp)async{
+    _otpVerificationInprogress=true;
     update();
-    final NetworkResponse response=await NetworkCaller.getRequest(Urls.verifyEmail(email));
-    _emailVerificationInprogress=false;
+    final NetworkResponse response=await NetworkCaller.getRequest(Urls.verifyOtp(email, otp));
+    _otpVerificationInprogress=false;
     update();
     if(response.isSuccess){
       _message=response.responseJson?['data']??'';
       return true;
     }else{
       _message=response.responseJson?['data']??'';
-      // _emailVerificationInprogress=true;
+      _otpVerificationInprogress = false;
       return false;
     }
   }

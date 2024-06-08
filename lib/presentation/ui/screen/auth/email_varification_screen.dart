@@ -88,14 +88,15 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         return const Center(
                           child: CircularProgressIndicator(),
                         );
-                      }
-                      return ElevatedButton(
+                      }else {
+                        return ElevatedButton(
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               emailVerify(controller);
                             }
                           },
                           child: const Text('Next'));
+                      }
                     }),
                   )
                 ],
@@ -111,7 +112,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     final response =
         await controller.verifyEmail(_emailTEController.text.trim());
     if (response) {
-      Get.to(()=>const OtpVerificationScreen());
+      Get.to(()=> OtpVerificationScreen(email: _emailTEController.text.trim()));
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
