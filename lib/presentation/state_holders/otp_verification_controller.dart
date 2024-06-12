@@ -1,5 +1,6 @@
 import 'package:ecommerce/data/models/network_response.dart';
 import 'package:ecommerce/data/services/network_caller.dart';
+import 'package:ecommerce/presentation/state_holders/auth_controller.dart';
 import 'package:get/get.dart';
 
 import '../../data/utility/urls.dart';
@@ -17,10 +18,10 @@ class OtpVerificationController extends GetxController{
     _otpVerificationInprogress=false;
     update();
     if(response.isSuccess){
-      _message=response.responseJson?['data']??'';
+      await AuthController.setAccessToken(response.responseJson? ['data']);
       return true;
     }else{
-      _message=response.responseJson?['data']??'';
+      _message=response.responseJson?['data'];
       _otpVerificationInprogress = false;
       return false;
     }
