@@ -1,3 +1,4 @@
+import 'package:ecommerce/presentation/state_holders/home_slider_controller.dart';
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:ecommerce/presentation/ui/screen/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
@@ -73,7 +74,11 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const HomeSlider(),
+              GetBuilder<HomeSliderController>(
+                builder: (homeSliderController) {
+                  return HomeSlider(sliders: homeSliderController.sliderModel.data??[]);
+                }
+              ),
               const SizedBox(
                 height: 16,
               ),
