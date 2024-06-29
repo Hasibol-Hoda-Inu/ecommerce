@@ -6,24 +6,26 @@ import 'package:get/get.dart';
 import '../../data/utility/urls.dart';
 
 class HomeSliderController extends GetxController{
-  bool _getHomeSlidersController =false;
-  String _message='';
+  bool _getHomeSlidersInprogress =false;
   SliderModel _sliderModel=SliderModel();
-  SliderModel get sliderModel=>SliderModel();
+  String _message='';
 
-  bool get getHomeSlidersInprogress=> _getHomeSlidersController;
+  SliderModel get sliderModel=>_sliderModel;
+
+  bool get getHomeSlidersInprogress=> _getHomeSlidersInprogress;
   String get message=>_message;
 
   Future<bool> getHomeSlider()async{
-    _getHomeSlidersController=true;
+    _getHomeSlidersInprogress=true;
     update();
     final NetworkResponse response=await NetworkCaller.getRequest(Urls.getHomeSliders);
-    _getHomeSlidersController=false;
+    _getHomeSlidersInprogress=false;
     if(response.isSuccess){
       _sliderModel=SliderModel.fromJson(response.responseJson??{});
       update();
       return true;
     }else{
+      _message = 'Sliders data fetch failed!';
       update();
       return false;
     }

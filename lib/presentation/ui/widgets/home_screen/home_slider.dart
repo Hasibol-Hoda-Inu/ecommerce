@@ -1,5 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce/presentation/ui/screen/product_details_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../data/models/slider_data.dart';
 import '../../utility/app_color.dart';
@@ -34,10 +37,39 @@ class _HomeSliderState extends State<HomeSlider> {
                     width: MediaQuery.of(context).size.width,
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryColor.withOpacity(.02),
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    alignment: Alignment.center,
-                    child: Image.network(sliderData.image ??''));
+                    child: Row(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Image.network(sliderData.image?? '', width: 150,)],),
+                        const SizedBox(width: 12,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                          Text(sliderData.title??'', style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700
+                          ),),
+                          const SizedBox(height: 12,),
+                          SizedBox(
+                            width: 120,
+                            child: ElevatedButton(
+                                onPressed: (){Get.to(const ProductDetailsScreen());},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                ),
+                                child: const Text('Buy Now', style: TextStyle(color: AppColors.primaryColor),),
+                            ),
+                          )
+                        ],)
+                      ],
+                    )
+                );
               },
             );
           }).toList(),

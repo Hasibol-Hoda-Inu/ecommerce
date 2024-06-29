@@ -190,36 +190,34 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   Card get AddToFavoriteIcon {
     return Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        color: AppColors.primaryColor,
-                        child: const Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.favorite_outline,
-                            size: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      );
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      color: AppColors.primaryColor,
+      child: const Padding(
+        padding: EdgeInsets.all(4.0),
+        child: Icon(
+          Icons.favorite_outline,
+          size: 18,
+          color: Colors.white,
+        ),
+      ),
+    );
   }
 
   Wrap get Ratings {
-    return Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: Colors.yellow.shade700,
-                              size: 22,
-                            ),
-                            const Text('4.8',
-                                style: TextStyle(
-                                  color: Colors.blueGrey,
-                                  fontSize: 16,
-                                )),
-                          ]);
+    return Wrap(crossAxisAlignment: WrapCrossAlignment.center, children: [
+      Icon(
+        Icons.star,
+        color: Colors.yellow.shade700,
+        size: 22,
+      ),
+      const Text('4.8',
+          style: TextStyle(
+            color: Colors.blueGrey,
+            fontSize: 16,
+          )),
+    ]);
   }
 
   Container get addToCartBottomContainer {
