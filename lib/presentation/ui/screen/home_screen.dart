@@ -1,3 +1,4 @@
+import 'package:ecommerce/presentation/state_holders/category_controller.dart';
 import 'package:ecommerce/presentation/state_holders/home_slider_controller.dart';
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:ecommerce/presentation/ui/screen/product_list_screen.dart';
@@ -100,13 +101,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 8,
               ),
               SizedBox(
-                height: 90,
-                child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, item) {
-                      return const CategoryCard();
-                    }),
+                height: 110,
+                child: GetBuilder<CategoryController>(
+                  builder: (categoryController) {
+                    if(categoryController.getCategoriesInprogress){
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return ListView.builder(
+                        itemCount: categoryController.categoryModel.data?.length?? 0,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return CategoryCard(
+                              categoryData: categoryController.categoryModel.data![index]);
+                        });
+                  }
+                ),
               ),
               const SizedBox(height: 16,),
               SectionTitle(title: 'Popular',

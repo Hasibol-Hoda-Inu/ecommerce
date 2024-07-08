@@ -1,3 +1,4 @@
+import 'package:ecommerce/presentation/state_holders/category_controller.dart';
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:ecommerce/presentation/ui/widgets/category_icon_card_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,14 +33,21 @@ class _CategoryListScreenState extends State<CategoryListScreen> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 16,
-              ), itemBuilder: (context, index){
-                return const FittedBox(child: CategoryCard()) ;
-          }
+          child: GetBuilder<CategoryController>(
+            builder: (categoryController) {
+              return GridView.builder(
+                itemCount: categoryController.categoryModel.data?.length?? 0,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 16,
+                  ), itemBuilder: (context, index){
+                    return FittedBox(child: CategoryCard(
+                      categoryData: categoryController.categoryModel.data![index],
+                    )) ;
+              }
+              );
+            }
           ),
         ),
       ),
