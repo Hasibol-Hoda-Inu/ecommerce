@@ -1,6 +1,7 @@
 import 'package:ecommerce/presentation/state_holders/category_controller.dart';
 import 'package:ecommerce/presentation/state_holders/home_slider_controller.dart';
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
+import 'package:ecommerce/presentation/state_holders/product_controller.dart';
 import 'package:ecommerce/presentation/ui/screen/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
@@ -126,40 +127,51 @@ class _HomeScreenState extends State<HomeScreen> {
                   }),
               SizedBox(
                 height: 182,
-                child: ListView.builder(
-                    itemCount: 20,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
-                      return const ProductCard();
-                }),
+                child: GetBuilder<ProductController>(
+                  builder: (productController) {
+                    if(productController.getPopularProductsInProgress){
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return ListView.builder(
+                        itemCount: productController.popularProductModel.data?.length ?? 0,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index){
+                          return ProductCard(
+                            product: productController.popularProductModel.data![index],
+                          );
+                    });
+                  }
+                ),
               ),
               const SizedBox(height: 16,),
               SectionTitle(title: 'Special',
                   onTap: (){
                 Get.to(const ProductListScreen());
                   }),
-              SizedBox(
+               SizedBox(
                 height: 182,
-                child: ListView.builder(
-                    itemCount: 20,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
-                      return const ProductCard();
-                    }),
+                // child: ListView.builder(
+                //     itemCount: 20,
+                //     scrollDirection: Axis.horizontal,
+                //     itemBuilder: (context, index){
+                //       return ProductCard();
+                //     }),
               ),
               const SizedBox(height: 16,),
               SectionTitle(title: 'New',
                   onTap: (){
                 Get.to(const ProductListScreen());
                   }),
-              SizedBox(
+               SizedBox(
                 height: 182,
-                child: ListView.builder(
-                    itemCount: 20,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index){
-                      return const ProductCard();
-                    }),
+                // child: ListView.builder(
+                //     itemCount: 20,
+                //     scrollDirection: Axis.horizontal,
+                //     itemBuilder: (context, index){
+                //       return ProductCard();
+                //     }),
               ),
             ],
           ),

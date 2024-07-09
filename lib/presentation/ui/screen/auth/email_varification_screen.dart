@@ -115,8 +115,8 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
       Get.to(()=> OtpVerificationScreen(email: _emailTEController.text.trim()));
     } else {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('Email verification is failed, try again')));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(controller.message)));
       }
     }
   }

@@ -40,7 +40,9 @@ class _WishlistState extends State<Wishlist> {
                 mainAxisSpacing: 14,
               ),
               itemBuilder: (context, index){
-                return const FittedBox(child: ProductCard(),);
+                return const FittedBox(
+                  // child: ProductCard(),
+                );
               }
           ),
         )

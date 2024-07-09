@@ -2,12 +2,13 @@ import 'package:ecommerce/presentation/ui/screen/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/models/product.dart';
 import '../utility/app_color.dart';
-import '../utility/image_assets.dart';
 
 class ProductCard extends StatelessWidget {
+  final Product product;
   const ProductCard({
-    super.key,
+    super.key, required this.product,
   });
 
   @override
@@ -29,8 +30,8 @@ class ProductCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: AppColors.primaryColor.withOpacity(0.2),
                     borderRadius: const BorderRadius.only(topRight: Radius.circular(8), topLeft: Radius.circular(8)),
-                    image: const DecorationImage(
-                        image: AssetImage(ImageAssets.ShoePicture)
+                    image: DecorationImage(
+                        image: NetworkImage(product.image??'')
                     )
                 ),
               ),
@@ -38,7 +39,8 @@ class ProductCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    const Text('Nike shoe Ak504594549', style: TextStyle(
+                     Text(product.title?? '',
+                      style: const TextStyle(
                       overflow: TextOverflow.ellipsis,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -48,7 +50,7 @@ class ProductCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text("\$100",
+                        const Text("\${product.price?? 0}",
                           style: TextStyle(
                             color: AppColors.primaryColor,
                             fontWeight: FontWeight.w500,
@@ -57,8 +59,8 @@ class ProductCard extends StatelessWidget {
                             crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
                               Icon(Icons.star,color: Colors.yellow.shade700, size: 20,),
-                              const Text('4.8',
-                                  style: TextStyle(
+                               Text("${product.star ?? 0}",
+                                  style: const TextStyle(
                                     color: Colors.blueGrey,
                                   )
                               ),
