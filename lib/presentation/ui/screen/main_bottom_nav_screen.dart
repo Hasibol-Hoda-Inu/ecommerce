@@ -1,7 +1,8 @@
 import 'package:ecommerce/presentation/state_holders/category_controller.dart';
 import 'package:ecommerce/presentation/state_holders/home_slider_controller.dart';
 import 'package:ecommerce/presentation/state_holders/main_bottom_nav_controller.dart';
-import 'package:ecommerce/presentation/state_holders/product_controller.dart';
+import 'package:ecommerce/presentation/state_holders/new_product_controller.dart';
+import 'package:ecommerce/presentation/state_holders/popular_product_controller.dart';
 import 'package:ecommerce/presentation/ui/screen/cart_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/category_list_screen.dart';
 import 'package:ecommerce/presentation/ui/screen/home_screen.dart';
@@ -9,6 +10,8 @@ import 'package:ecommerce/presentation/ui/screen/wishlist.dart';
 import 'package:ecommerce/presentation/ui/utility/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../state_holders/special_product_controller.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
   const MainBottomNavScreen({super.key});
@@ -32,7 +35,10 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.find<HomeSliderController>().getHomeSlider();
       Get.find<CategoryController>().getCategories();
-      Get.find<ProductController>().getPopularProducts();
+      Get.find<PopularProductController>().getPopularProducts();
+      Get.find<PopularProductController>().getPopularProducts();
+      Get.find<NewProductController>().getNewProducts();
+      Get.find<SpecialProductController>().getSpecialProducts();
     });
     super.initState();
   }
